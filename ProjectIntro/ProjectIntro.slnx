@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../Common/Common.csproj" Id="8e2d7855-475f-4694-be46-e4641417535b" />
+  <Project Path="../MathsLib/MathsLib.csproj" />
+  <Project Path="../ScienceLib/ScienceLib.csproj" />
+  <Project Path="ProjectIntro.csproj" />
+</Solution>
