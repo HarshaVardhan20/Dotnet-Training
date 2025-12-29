@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace ExaminationManagementSystem
 {
-
+    /// <summary>
+    /// Abstract Employee Class
+    /// </summary>
     public abstract class Employee
     {
         public int EmpId { get; set; }
@@ -12,12 +15,11 @@ namespace ExaminationManagementSystem
 
     public class Student
     {
-        public int StudentId { get; private set; }
+        public int StudentId { get;  set; }
         public string StudentName { get; set; } 
         public int StudentAge { get; set; }
         public string Section { get; set; }
         public int Batch { get; set; }
-        public Semester Semester { get; set; }
     }
 
 
@@ -34,42 +36,46 @@ namespace ExaminationManagementSystem
 
     public class HOD : Employee
     {
-        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
 
         public void ScheduleExam(ExamSchedule schedule)
         {
             Console.WriteLine($"HOD scheduled exam for Course {schedule.Exam.Course.CourseName}");
         }
+
+        public void AddCourseToSemister(int SemisterId,int courseId)
+        {
+
+        }
     }
 
     public class Examiner : Employee
     {
-        public Department Department { get; set; }
+        public int DepartmentId { get; set; }
     }
 
 
     public class Semester
     {
         public int SemesterId { get; set; }
-        public int SemesterNumber { get; set; }
     }
 
     public class Course
     {
         public int CourseId { get; set; }
-        public string CourseName { get; private set; }
-        public Department Department { get; set; }
+        public string CourseName { get; set; }
+        public int DepartmentId { get; set; }
 
-        public Course(string name)
-        {
-            CourseName = name;
-        }
+        //public Course(string name)
+        //{
+        //    CourseName = name;
+        //}
     }
 
     public class Section
     {
         public int SectionId { get; set; }
-
+        public List<int> studentIds;        
     }
 
     public class Exam
@@ -103,4 +109,11 @@ namespace ExaminationManagementSystem
         public Room Room { get; set; }
         public Block Block { get; set; }
     }
+
+    //public class Section
+    //{
+    //    public int SectionId { get; set; }
+
+
+    //}
 }
